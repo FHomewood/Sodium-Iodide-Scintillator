@@ -1,0 +1,10 @@
+Covariance Matrix 
+[[  3.21334115e-01  -2.50089612e+02]
+ [ -2.50089612e+02   3.09825631e+05]]
+Attenuation Thickness 
+15.8253088701 
+Scalar 
+21151.7342515 
+Chi Squared 
+22.4496557609 
+P-Value - 0.0004

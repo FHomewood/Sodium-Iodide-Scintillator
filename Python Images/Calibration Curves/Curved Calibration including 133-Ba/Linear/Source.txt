@@ -1,0 +1,81 @@
+#import libraries
+import numpy as num;
+import matplotlib.pyplot as plt;
+
+#define data ranges
+y = [1207.,1367.,544.,1315.,385.,327.,97.,39.];      # Channel Number 
+dy= [5.,5.,5.,5.,5.,5.,5.,5.];                   # Channel Number error
+x = [1173.2,1332.5,511.0,1274.5,356.0,302.,81.,31.]; # Associated Energy in KeVs
+dx= [5.,5.,5.,5.,5.,5.,5.,5.];                   # Energy error
+modeldata = num.linspace(min(x),max(x),100); #Smooth-esque range for curve plotting
+
+#range statistic variables
+n = float(len(x));
+summ = sum(x)
+sumx = sum(x);
+sumy = sum(y);
+sumxy = sum([i*j for i,j in zip(x,y)]);
+sumx2 = sum([i**2 for i in x]);
+meany = sumy/n;
+meanx = sumx/n;
+    
+#least squares variables
+m = (n*sumxy-sumx*sumy)/(n*sumx2 - sumx**2); #Gradient
+dm = num.sqrt(sum([(j-meany - m*(i-meanx))**2 for i,j in zip(x,y)])/(n*sumx2-sumx**2)); #Gradient Error
+c = meany - m*meanx; #Intercept
+dc = meanx * dm; #Intercept Error
+chisq = sum([((j - i*m - c)/dj)**2 for i,j,dj in zip(x,y,dy)]);
+
+#show variables
+print("n = " + str(n));
+print("sumx  = " + "{:.2E}".format(summ));
+print("sumy  = " + "{:.2E}".format(sumy));
+print("sumxy = " + "{:.2E}".format(sumxy));
+print("sumx2 = " + "{:.2E}".format(sumx2));
+print("meanx = " + "{:.2E}".format(meanx));
+print("meany = " + "{:.2E}".format(meany));
+print();
+print("least squares variables:");
+print("m     = " + "{:.2E}".format(m) + " +- " + "{:.2E}".format(dm));
+print("c     = " + "{:.2E}".format(c) + " +- " + "{:.2E}".format(dc));
+print("chisq = " + "{:.4E}".format(chisq));
+
+#model plot data
+f = [i*m + c for i in modeldata];
+maxf = [i*(m+dm) + c + dc for i in modeldata];
+minf = [i*(m-dm) + c - dc for i in modeldata];
+
+#show plots
+#raw data
+image = plt.figure(num=None, figsize=(10, 10), dpi=1200, facecolor='w', edgecolor='k')
+plt.errorbar(x,y,dy,None,'bx',elinewidth = 0.5,capsize = 2);
+#best fit
+plt.errorbar(modeldata,f,None,None,'k-',linewidth = 0.3);
+#maximum bound
+plt.errorbar(modeldata,maxf,None,None,'grey','--',linewidth=0.2);
+#minimum bound
+plt.errorbar(modeldata,minf,None,None,'grey','--',linewidth=0.2);
+plt.grid()
+plt.title(r'$Calibration \ Curve$')
+plt.xlabel(r'$Energy \ [KeV]$')
+plt.ylabel(r'$Channel \ []$')
+filepath = 'D:\\NaI Scintillation\\';
+print("Save image as:")
+filepath += input()
+image.savefig(filepath+ '.png')
+plt.show();
+
+
+
+
+
+#Residual Plot
+residuals = [j-m*i-c for i,j in zip(x,y)]
+image = plt.figure(num=None, figsize=(10, 5), dpi=1200, facecolor='w', edgecolor='k')
+plt.grid()
+plt.errorbar(x,residuals,dy,None,'x')
+plt.title(r'$Residual \ Plot$')
+plt.xlabel(r'$Energy \ [KeV]$')
+plt.ylabel(r'$\Delta Channel \ []$')
+image.savefig(filepath + " Residuals" + '.png')
+plt.show()

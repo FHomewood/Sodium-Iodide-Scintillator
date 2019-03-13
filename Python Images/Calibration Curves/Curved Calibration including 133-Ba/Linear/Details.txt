@@ -1,0 +1,12 @@
+n = 8.0
+sumx  = 5.06E+03
+sumy  = 5.28E+03
+sumxy = 5.44E+06
+sumx2 = 5.26E+06
+meanx = 6.33E+02
+meany = 6.60E+02
+
+least squares variables:
+m     = 1.02E+00 +- 3.76E-03
+c     = 1.69E+01 +- 2.38E+00
+chisq = 9.3000E+00

@@ -1,0 +1,5 @@
+
+LinearDev: 5.391
+QuadDev  : 2.53
+
+the standard deviation drastically decreases with the quadratic fit

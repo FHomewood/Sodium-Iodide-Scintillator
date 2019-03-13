@@ -1,0 +1,23 @@
+the program guessed the origional peak had a 
+Standard deviation of : 40.6286120852
+Peak Mean of : 1359.47629412
+Scalar Multiplier of : 18365.6445025
+
+the algorithm then refined this estimate to find the accurate values that
+Standard deviation is :28.5111796429
+Peak Mean is at : 1360.1841834
+Peak Area is : 11203.8631318
+ +- 199.48958248Background Slope is : -0.0589204782838
+Background intercept is : 118.143426457
+ 
+ 
+[[  1.65266624e-01  -2.12654096e-02   6.66555108e+01   1.49414147e-03
+   -2.37089909e+00]
+ [ -2.12654096e-02   1.06521900e-01  -1.29853574e+01  -1.80876434e-03
+    2.54759806e+00]
+ [  6.66555108e+01  -1.29853574e+01   3.97960935e+04   9.12673532e-01
+   -1.44440787e+03]
+ [  1.49414147e-03  -1.80876434e-03   9.12673532e-01   1.25138146e-04
+   -1.76351098e-01]
+ [ -2.37089909e+00   2.54759806e+00  -1.44440787e+03  -1.76351098e-01
+    2.49573619e+02]]

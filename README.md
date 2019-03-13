@@ -1,1 +1,4 @@
-# Sodium-Iodide-Scintillator
+﻿# NaI(Tl) Scintillator Detector
+
+## Abstract
+Radiation resistant materials have a multitude of applications useful to keeping people safe whilst exploring and researching dangerous environments.  Here we have measured the attenuation length with respect to lead at two different energies.  We find that when increasing the thickness of lead shielding between  a  NaI  (Tl)  Scintillation  detector  and  a  sample  of60Co  the  intensity  of  the  detected  radiation decreases exponentially.  By measuring this decays exponent,  we found that the attenuation length of lead is (15.83±0.57) mm at 1.1723 MeV and (16.46±0.31) mm at 1.3325 MeV. From these measurements we discuss whether attenuation length of lead is constant with photon energy or not, and observe that background radiation only approximates a linear fit for the highest energy photo peak of the spectrum.
